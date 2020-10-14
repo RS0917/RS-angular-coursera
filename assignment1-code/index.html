@@ -8,6 +8,7 @@
     <script src="app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      #info {margin-bottom:10px; font-weight: bold;}
     </style>
   </head>
 <body>
@@ -15,15 +16,16 @@
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
+            <div id="info">empty item, i.e., , , NOT considered as an item towards the count.</div>
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="dishes">
+             class="form-control" ng-model="dishes" ng-focus="clearFields()">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="checkNoDishes()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
+         <div class="form-group message" style="color:{{msgcolor}}; border-style:{{borderstyle}}; border-color:{{msgcolor}};" >
+           {{message}}
          </div>
    </div>
 
